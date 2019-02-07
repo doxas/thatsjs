@@ -1,6 +1,5 @@
 
 const fs = require('fs');
-const fsp = fs.promises;
 const path = require('path');
 
 let pathArray = [];
@@ -75,9 +74,11 @@ function overwrite(root, source, callback){
             }
             return;
         }
-        Promise.all(pathArray.map((v) => {
+        Promise.all(pathArray.map((p) => {
+            let v = path.join(root, p);
             if(v === source){return Promise.resolve();}
             return new Promise((resolve, reject) => {
+                console.log(source, v);
                 fs.copyFile(source, v, (err) => {
                     if(err != null){
                         reject(err);
