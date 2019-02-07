@@ -1,2 +1,6 @@
+
 # thatsjs
-that's JavaScript snippet
+
+that's JavaScript snippet.
+
+
